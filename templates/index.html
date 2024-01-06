@@ -1,0 +1,32 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Sharing System</title>
+</head>
+<body>
+    <h2>Ops User File Upload</h2>
+    <form action="/ops/upload" method="post" enctype="multipart/form-data">
+        <label for="opsFile">Select file to upload (pptx, docx, xlsx only):</label>
+        <input type="file" id="opsFile" name="file" accept=".pptx, .docx, .xlsx" required>
+        <br>
+        <label for="opsUsernameUpload">Username:</label>
+        <input type="text" id="opsUsernameUpload" name="username" required>
+        <br>
+        <input type="submit" value="Upload File">
+    </form>
+
+    <h2>Client User File Download</h2>
+    <form action="/client/download" method="post">
+        <label for="clientUsernameDownload">Username:</label>
+        <input type="text" id="clientUsernameDownload" name="username" required>
+        <br>
+        <label for="fileId">File ID:</label>
+        <input type="text" id="fileId" name="file_id" required>
+        <br>
+        <input type="submit" value="Download File">
+    </form>
+</body>
+</html>
