@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "4398ee40-eb97-4126-b8c3-12fd772cf8f0",
+		"name": "File-sharing-system-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32168130",
+		"_collection_link": "https://www.postman.com/aditi0712/workspace/file-sharing-system/collection/32168130-4398ee40-eb97-4126-b8c3-12fd772cf8f0?action=share&source=collection_link&creator=32168130"
+	},
+	"item": [
+		{
+			"name": "ops login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"root\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ops upload file",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Ops-User",
+						"value": "root",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "Resume_Aditi.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/upload",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client singup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Aditi0712sharma@gmail.com\",\r\n    \"password\": \"0712\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/signup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client email verification",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/verify?token=IK7EwmciQFjNdMAZ1HEh9tA1-GhCO6NS5Psd4rEYg1E",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"verify"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "IK7EwmciQFjNdMAZ1HEh9tA1-GhCO6NS5Psd4rEYg1E"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Aditi0712sharma@gmail.com\",\r\n    \"password\": \"0712\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/client/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"client",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client download file",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Client-Email",
+						"value": "Aditi0712sharma@gmail.com",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/download/Resume_Aditi.docx",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"download",
+						"Resume_Aditi.docx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list files",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Client-Email",
+						"value": "Aditi0712sharma@gmail.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/client/files",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"client",
+						"files"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
